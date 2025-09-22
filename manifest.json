@@ -1,0 +1,22 @@
+{
+  "name": "Asim Merchant Portfolio",
+  "short_name": "AsimMerchant",
+  "description": "Senior Firmware Development Engineer - Embedded Systems Specialist",
+  "theme_color": "#00d4ff",
+  "background_color": "#0a0a0f",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "assets/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/icon-512x512.png",
+      "sizes": "512x512", 
+      "type": "image/png"
+    }
+  ]
+}

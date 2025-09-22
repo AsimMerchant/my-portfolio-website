@@ -1,0 +1,6 @@
+# Asim Merchant Portfolio
+
+User-agent: *
+Allow: /
+
+Sitemap: https://your-domain.com/sitemap.xml

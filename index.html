@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asim Merchant - Senior Firmware Development Engineer</title>
+    <meta name="description" content="Senior Firmware Development Engineer specializing in Embedded Systems, RTOS, Machine Learning, and IoT. Expert in C/C++, Python, FreeRTOS, and Wi-SUN networks.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Asim Merchant - Senior Firmware Development Engineer">
+    <meta property="og:description" content="Senior Firmware Development Engineer specializing in Embedded Systems, RTOS, Machine Learning, and IoT.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/AsimMerchant">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="code-typing">
+                <span class="typing-text">Loading portfolio...</span>
+                <span class="cursor">|</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <span class="logo-text">AsimMerchant</span>
+                    <span class="logo-accent">.dev</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="name">Asim Merchant</span>
+                        <span class="role">Senior Firmware Development Engineer</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Passionate about <span class="highlight">Embedded Systems</span>, 
+                        <span class="highlight">RTOS</span>, and <span class="highlight">IoT</span>. 
+                        Building innovative solutions with cutting-edge technology.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                        <a href="https://github.com/AsimMerchant" target="_blank" rel="noopener" class="btn btn-secondary">
+                            <i class="fab fa-github"></i>
+                            View GitHub
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="btn-close"></span>
+                                <span class="btn-minimize"></span>
+                                <span class="btn-maximize"></span>
+                            </div>
+                            <span class="terminal-title">asim@terminal:~$</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command" id="typing-command"></span>
+                                <span class="cursor-blink">|</span>
+                            </div>
+                            <div class="terminal-output" id="terminal-output"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        I'm a passionate Senior Firmware Development Engineer with extensive experience in 
+                        embedded systems design, real-time operating systems, and IoT solutions.
+                    </p>
+                    
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Based in India</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>B.E. Electronics & Communication</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>7+ Years Experience</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Embedded Systems Enthusiast</span>
+                        </div>
+                    </div>
+                    
+                    <div class="expertise-areas">
+                        <h3>Areas of Interest</h3>
+                        <ul class="expertise-list">
+                            <li><i class="fas fa-microchip"></i> Embedded Systems Design</li>
+                            <li><i class="fas fa-cogs"></i> Real-Time Operating Systems (RTOS)</li>
+                            <li><i class="fas fa-brain"></i> Machine Learning</li>
+                            <li><i class="fas fa-wifi"></i> Internet of Things (IoT)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="7">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Programming Languages</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">OCT 2024 – DEC 2024</div>
+                        <h3 class="timeline-title">Senior Engineer</h3>
+                        <h4 class="timeline-company">Altimetrik Pune</h4>
+                        <p class="timeline-description">
+                            Responsible for completing various miscellaneous tasks/projects from external clients 
+                            and internal teams. Projects were mostly based on C, C++, and FreeRTOS.
+                        </p>
+                        <div class="timeline-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">FreeRTOS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 2022 – OCT 2024</div>
+                        <h3 class="timeline-title">Senior Firmware Development Engineer</h3>
+                        <h4 class="timeline-company">Landis+Gyr Noida</h4>
+                        <p class="timeline-description">
+                            Worked on Wi-SUN (802.15) network standard managing implementation of various layers 
+                            of the network stack, with expertise in MAC layer timing synchronization and hardware 
+                            associated with MAC layer implementation.
+                        </p>
+                        <div class="timeline-projects">
+                            <h5>Key Projects:</h5>
+                            <ul>
+                                <li>MAC Layer Time synchronization between Parent Router and battery endpoint</li>
+                                <li>Power usage calculation and optimization (11 years to 20 years battery life)</li>
+                                <li>Automation scripts for power usage calculation</li>
+                                <li>MAC layer communication optimization for battery endpoints</li>
+                                <li>Temperature drift compensation algorithms</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">EmbOS</span>
+                            <span class="tech-tag">Wi-SUN</span>
+                            <span class="tech-tag">MAC Layer</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">APRIL 2021 – April 2022</div>
+                        <h3 class="timeline-title">Software Engineer/Developer</h3>
+                        <h4 class="timeline-company">Siemens Pune</h4>
+                        <p class="timeline-description">
+                            Worked in Railway automation domain managing Interlocking code for Railway trackside 
+                            equipment written in ST-IEC 61131, ADA and C++. Developed tools for code conversion 
+                            and compilation.
+                        </p>
+                        <div class="timeline-projects">
+                            <h5>Key Projects:</h5>
+                            <ul>
+                                <li>Tool to convert ST-IEC61131 code to CPP with error checking and compilation</li>
+                                <li>Railway trackside equipment interlocking systems</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">C++14</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">ST-IEC 61131</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">MARCH 2018 – APRIL 2021</div>
+                        <h3 class="timeline-title">Content Development Engineer</h3>
+                        <h4 class="timeline-company">Collabera (Client: Xilinx) Hyderabad</h4>
+                        <p class="timeline-description">
+                            Lab development for training via ILT/On-demand. Developed labs including codes, 
+                            automation scripts and documentation for embedded systems-based products.
+                        </p>
+                        <div class="timeline-projects">
+                            <h5>Key Projects:</h5>
+                            <ul>
+                                <li>Linux IPC mechanisms and kernel configuration for Zynq SoCs</li>
+                                <li>Low speed peripherals configuration (I2C, SPI, UART)</li>
+                                <li>PMU firmware custom modules development</li>
+                                <li>FSBL debugging and QEMU emulation</li>
+                                <li>FreeRTOS Producer/Consumer implementations</li>
+                                <li>Automation scripts for VM creation and tool deployment</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-tech">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Bash/Shell</span>
+                            <span class="tech-tag">TCL</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">FreeRTOS</span>
+                            <span class="tech-tag">Xilinx</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-code"></i>
+                        Programming Languages
+                    </h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-experience">5 years</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Embedded C</span>
+                                <span class="skill-experience">7 years</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C++</span>
+                                <span class="skill-experience">4 years</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Assembly Language</span>
+                                <span class="skill-experience">5 years</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">TCL</span>
+                                <span class="skill-experience">3 years</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Linux Shell/Bash</span>
+                                <span class="skill-experience">4 years</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-microchip"></i>
+                        Embedded Platforms & RTOS
+                    </h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ARM Cortex (Zynq-7000, Zynq US+)</span>
+                        <span class="tech-tag">ARM M4</span>
+                        <span class="tech-tag">TI Microcontrollers</span>
+                        <span class="tech-tag">Renesas</span>
+                        <span class="tech-tag">FreeRTOS</span>
+                        <span class="tech-tag">EmbOS</span>
+                        <span class="tech-tag">Linux Kernel</span>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-tools"></i>
+                        Development Tools & Software
+                    </h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Vivado</span>
+                        <span class="tech-tag">Vitis (Eclipse-based)</span>
+                        <span class="tech-tag">IAR</span>
+                        <span class="tech-tag">Git/GitLab</span>
+                        <span class="tech-tag">Jira</span>
+                        <span class="tech-tag">TFS</span>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-wifi"></i>
+                        Specialized Technologies
+                    </h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Wi-SUN (IEEE 802.15)</span>
+                        <span class="tech-tag">MAC Layer Protocols</span>
+                        <span class="tech-tag">Wireless/RF</span>
+                        <span class="tech-tag">I2C</span>
+                        <span class="tech-tag">SPI</span>
+                        <span class="tech-tag">UART</span>
+                        <span class="tech-tag">IPC Mechanisms</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (GitHub Integration) -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects & GitHub</h2>
+            
+            <div class="github-section">
+                <div class="github-profile" id="github-profile">
+                    <!-- GitHub profile will be loaded here -->
+                </div>
+                
+                <div class="github-repos" id="github-repos">
+                    <!-- GitHub repositories will be loaded here -->
+                </div>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project cards will be dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>
+                        I'm always interested in discussing new opportunities, 
+                        embedded systems projects, or technology innovations. 
+                        Feel free to reach out!
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <a href="mailto:asimthatsme@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="method-label">Email</span>
+                                <span class="method-value">asimthatsme@gmail.com</span>
+                            </div>
+                        </a>
+                        
+                        <a href="tel:+919724882198" class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="method-label">Phone</span>
+                                <span class="method-value">+91 9724882198</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/AsimMerchant" target="_blank" rel="noopener" class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <span class="method-label">GitHub</span>
+                                <span class="method-value">AsimMerchant</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/asim-merchant-baaa0684/" target="_blank" rel="noopener" class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <span class="method-label">LinkedIn</span>
+                                <span class="method-value">Asim Merchant</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Asim Merchant. All rights reserved.</p>
+                    <p>Built with ❤️ and modern web technologies</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://github.com/AsimMerchant" target="_blank" rel="noopener" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/asim-merchant-baaa0684/" target="_blank" rel="noopener" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:asimthatsme@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+919724882198" title="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
