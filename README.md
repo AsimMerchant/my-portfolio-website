@@ -2,6 +2,10 @@
 
 A modern, responsive portfolio website showcasing embedded systems expertise, professional experience, and GitHub projects.
 
+## ✨ Vibecoded Project
+
+This portfolio website was created as part of a **vibecoded project** - a modern, AI-assisted development approach that combines creative coding with intelligent automation to build beautiful, functional web experiences.
+
 ## 🚀 Features
 
 - **Modern Design**: Clean, professional layout with embedded systems theme
