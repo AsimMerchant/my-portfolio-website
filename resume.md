@@ -5,9 +5,17 @@ https://www.linkedin.com/in/asim-merchant-baaa0684/
 
 ## Areas of interest
 
-· Embedded Systems Design, RTOS, Machine Learning, Internet of things (IoT).
+· Java, Android Development, Embedded Systems Design, RTOS, Machine Learning, Internet of things (IoT).
 
 ## Industry Experience
+
+### Bounteous Hyderabad | Senior Software Engineer | APRIL 2025 – Present
+
+**Brief Description:** - I work for Bounteous client Advantive who focusses mainly on corrugate box industry.
+
+**Projects (Fortran, C, Java):**
+- Working on maintaining and adding new features to Fortran codebase which sends and receives data to and from Corrugated machine controllers and process the data to be displayed on the UI. This codebase also sends commands to the machine controllers to control the machines.
+- Working on Java codebase which is a New Link Architecture for the Fortran codebase to communicate with the machine controllers. This codebase also has a simulator to simulate the machine controllers for testing purposes.
 
 ### Altimetrik Pune | Senior Engineer | OCT 2024 – DEC 2024
 
@@ -20,20 +28,20 @@ up from Altimetrik's external clients as well as internal teams. Projects were m
 of various layers of the network stack, my expertise being in MAC layer timing synchronization and hardware
 associated with said MAC layer implementation (RTC clock, crystal).
 **Projects (C and Python, on EmbOS):**
-● **Mac LAYER Time synchronization** between a Parent Router and a battery endpoint: Algorithms for
+- **Mac LAYER Time synchronization** between a Parent Router and a battery endpoint: Algorithms for
 Child nodes being able to synchronize their clocks with Parent devices and maintain communication
 with parent devices, take advantage of parent’s and battery endpoint’s schedule to send and receive
 data packets back and forth and accounting for crystal drift in child nodes.
-● **Calculated power usage of battery endpoints** and determine battery life of the device, identified
+- **Calculated power usage of battery endpoints** and determine battery life of the device, identified
 optimization scenarios and optimize the usage, achieved optimization from 11 years to 20 years
 respectively through this activity.
-● **Automate Power usage calculation in Battery endpoint** : Automation scripts to identify activity
+- **Automate Power usage calculation in Battery endpoint** : Automation scripts to identify activity
 occurring in any endpoint that uses battery above sleep current threshold and calculate power
 consumed by leaving the device on for a few hours to record all possible events that could occur on
 the endpoint.
-● Worked on **optimization of various MAC layer communication** around battery endpoints such as
+- Worked on **optimization of various MAC layer communication** around battery endpoints such as
 **Unicast** transmission and listening, **Broadcast** listening.
-● Worked on identifying **drift on battery endpoints due to extreme temperature** and implemented
+- Worked on identifying **drift on battery endpoints due to extreme temperature** and implemented
 algorithms to compensate for that making the device withstand over 20C change in an hour and still
 being able to communicate without using any extra power.
 
@@ -47,8 +55,8 @@ of Railways.
 **Projects (C, C++ 14 and Python, on Linux and Baremetal):**
 
 - Tool (written in Python) to convert ST-IEC61131 code to CPP: This tool compiles the ST code to check
-    for errors, if there were no errors it goes on to convert the code and all its modules line-byline to CPP
-    then compiles it and executes it respectively for the specified target platfiorm.
+for errors, if there were no errors it goes on to convert the code and all its modules line-byline to CPP
+then compiles it and executes it respectively for the specified target platform.
 
 
 ### COLLABERA(Client:- Xilinx) HYDERABAD | CONTENT DEVELOPMENT ENGINEER | MARCH
@@ -81,7 +89,7 @@ scripts to facilitate assistance in labs**
 
 · **Programming** : **Python ( 5 years)** , **CPP ( 4 years)** , CPP14(2 years) Embedded **C programming ( 7 years)** ,
 
-**Assembly language (5 years), TCL** (tool command language) **(3 years)** , Linux shell/Bash **(4 years)**. ·
+**Assembly language (5 years), TCL** (tool command language) **(3 years)** , Linux shell/Bash **(4 years)**, **Fortran (1 year)**, **Java (1 year)**. ·
 
 **Software** : Vivado **(3 years)** and SDx/Vitis (Eclipse-based) **(3 years), IAR(2 years)**.
 

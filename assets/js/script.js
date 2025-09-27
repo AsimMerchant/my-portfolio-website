@@ -33,14 +33,25 @@ const App = {
 
     // Initialize the application
     init() {
-        this.bindEvents();
-        this.handleLoading();
-        this.initializeAnimations();
-        this.initializeNavigation();
-        this.initializeTerminal();
-        this.loadGitHubData();
-        this.initializeScrollAnimations();
-        this.initializeContactForm();
+        try {
+            this.bindEvents();
+            this.handleLoading();
+            this.initializeAnimations();
+            this.initializeNavigation();
+            this.initializeTerminal();
+            this.loadGitHubData();
+            this.initializeScrollAnimations();
+            this.initializeContactForm();
+        } catch (error) {
+            console.error('App initialization error:', error);
+            // Continue with basic functionality even if some features fail
+            try {
+                this.bindEvents();
+                this.handleLoading();
+            } catch (fallbackError) {
+                console.error('Critical initialization error:', fallbackError);
+            }
+        }
     },
 
     // ==========================================
@@ -321,17 +332,24 @@ const App = {
     observeElements() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                    
-                    // Trigger specific animations based on element type
-                    if (entry.target.classList.contains('stat-item')) {
-                        this.animateCounter(entry.target);
+                try {
+                    if (entry.isIntersecting && entry.target) {
+                        entry.target.classList.add('animated');
+                        
+                        // Trigger specific animations based on element type
+                        if (entry.target.classList.contains('stat-item')) {
+                            const counterElement = entry.target.querySelector('.stat-number[data-target]');
+                            if (counterElement) {
+                                this.animateCounter(counterElement);
+                            }
+                        }
+                        
+                        if (entry.target.classList.contains('skill-item')) {
+                            this.animateSkillBar(entry.target);
+                        }
                     }
-                    
-                    if (entry.target.classList.contains('skill-item')) {
-                        this.animateSkillBar(entry.target);
-                    }
+                } catch (error) {
+                    console.warn('Animation error:', error);
                 }
             });
         }, {
@@ -362,7 +380,17 @@ const App = {
     animateCounter(counter) {
         if (counter.classList.contains('counted')) return;
         
-        const target = parseInt(counter.getAttribute('data-target'));
+        const targetAttr = counter.getAttribute('data-target');
+        const target = parseInt(targetAttr);
+        
+        // Validate target value
+        if (isNaN(target) || target < 0) {
+            console.warn('Invalid data-target value:', targetAttr);
+            counter.textContent = '0';
+            counter.classList.add('counted');
+            return;
+        }
+        
         const duration = 2000; // 2 seconds
         const step = target / (duration / 16); // 60 FPS
         let current = 0;
@@ -374,7 +402,10 @@ const App = {
                 clearInterval(timer);
                 counter.classList.add('counted');
             }
-            counter.textContent = Math.floor(current);
+            
+            // Ensure we always set a valid number
+            const displayValue = Math.floor(current);
+            counter.textContent = isNaN(displayValue) ? '0' : displayValue;
         }, 16);
     },
 
@@ -390,13 +421,18 @@ const App = {
     },
 
     animateSkillBar(skillItem) {
-        if (skillItem.classList.contains('animated-skill')) return;
+        if (!skillItem || skillItem.classList.contains('animated-skill')) return;
         
         const progressBar = skillItem.querySelector('.skill-progress[data-width]');
         if (progressBar) {
-            const width = progressBar.getAttribute('data-width');
+            const widthAttr = progressBar.getAttribute('data-width');
+            const width = this.safeNumber(widthAttr, 0);
+            
+            // Ensure width is within valid range (0-100)
+            const clampedWidth = Math.min(100, Math.max(0, width));
+            
             setTimeout(() => {
-                progressBar.style.width = width + '%';
+                progressBar.style.width = clampedWidth + '%';
                 skillItem.classList.add('animated-skill');
             }, 300);
         }
@@ -409,13 +445,43 @@ const App = {
         try {
             const username = this.config.githubUsername;
             
-            // Fetch user profile
-            const userResponse = await fetch(`https://api.github.com/users/${username}`);
+            if (!username) {
+                throw new Error('GitHub username not configured');
+            }
+            
+            // Fetch user profile with timeout
+            const userResponse = await Promise.race([
+                fetch(`https://api.github.com/users/${username}`),
+                new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 10000))
+            ]);
+            
+            if (!userResponse.ok) {
+                throw new Error(`HTTP ${userResponse.status}: ${userResponse.statusText}`);
+            }
+            
             const userData = await userResponse.json();
             
-            // Fetch repositories
-            const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
+            // Validate user data
+            if (!userData || typeof userData !== 'object') {
+                throw new Error('Invalid user data received');
+            }
+            
+            // Fetch repositories with timeout
+            const reposResponse = await Promise.race([
+                fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`),
+                new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 10000))
+            ]);
+            
+            if (!reposResponse.ok) {
+                throw new Error(`HTTP ${reposResponse.status}: ${reposResponse.statusText}`);
+            }
+            
             const reposData = await reposResponse.json();
+            
+            // Validate repos data
+            if (!Array.isArray(reposData)) {
+                throw new Error('Invalid repositories data received');
+            }
             
             this.state.githubData = {
                 user: userData,
@@ -435,21 +501,26 @@ const App = {
         const profileContainer = document.getElementById('github-profile');
         if (!profileContainer || !userData) return;
 
+        // Safely extract and validate numeric values
+        const publicRepos = this.safeNumber(userData.public_repos, 0);
+        const followers = this.safeNumber(userData.followers, 0);
+        const following = this.safeNumber(userData.following, 0);
+
         profileContainer.innerHTML = `
-            <img src="${userData.avatar_url}" alt="${userData.name || userData.login}" class="github-avatar">
-            <h3 class="github-name">${userData.name || userData.login}</h3>
+            <img src="${userData.avatar_url || ''}" alt="${userData.name || userData.login || 'GitHub User'}" class="github-avatar">
+            <h3 class="github-name">${userData.name || userData.login || 'GitHub User'}</h3>
             <p class="github-bio">${userData.bio || 'Senior Firmware Development Engineer'}</p>
             <div class="github-stats">
                 <div class="github-stat">
-                    <span class="github-stat-number">${userData.public_repos}</span>
+                    <span class="github-stat-number">${publicRepos}</span>
                     <span class="github-stat-label">Repositories</span>
                 </div>
                 <div class="github-stat">
-                    <span class="github-stat-number">${userData.followers}</span>
+                    <span class="github-stat-number">${followers}</span>
                     <span class="github-stat-label">Followers</span>
                 </div>
                 <div class="github-stat">
-                    <span class="github-stat-number">${userData.following}</span>
+                    <span class="github-stat-number">${following}</span>
                     <span class="github-stat-label">Following</span>
                 </div>
             </div>
@@ -461,15 +532,19 @@ const App = {
         if (!reposContainer || !reposData) return;
 
         const reposHTML = reposData.map(repo => {
+            if (!repo) return '';
+            
             const languageColor = this.getLanguageColor(repo.language);
-            const stars = repo.stargazers_count > 0 ? `<span>⭐ ${repo.stargazers_count}</span>` : '';
-            const forks = repo.forks_count > 0 ? `<span>🍴 ${repo.forks_count}</span>` : '';
+            const starCount = this.safeNumber(repo.stargazers_count, 0);
+            const forkCount = this.safeNumber(repo.forks_count, 0);
+            const stars = starCount > 0 ? `<span>⭐ ${starCount}</span>` : '';
+            const forks = forkCount > 0 ? `<span>🍴 ${forkCount}</span>` : '';
             
             return `
-                <a href="${repo.html_url}" target="_blank" rel="noopener" class="repo-card">
+                <a href="${repo.html_url || '#'}" target="_blank" rel="noopener" class="repo-card">
                     <h4 class="repo-name">
                         <i class="fab fa-github"></i>
-                        ${repo.name}
+                        ${repo.name || 'Repository'}
                     </h4>
                     <p class="repo-description">
                         ${repo.description || 'No description available'}
@@ -486,7 +561,7 @@ const App = {
                     </div>
                 </a>
             `;
-        }).join('');
+        }).filter(html => html).join('');
 
         reposContainer.innerHTML = reposHTML;
     },
@@ -690,6 +765,12 @@ const App = {
             timeout = setTimeout(later, wait);
             if (callNow) func.apply(context, args);
         };
+    },
+
+    // Safe number utility to prevent NaN
+    safeNumber(value, fallback = 0) {
+        const num = parseInt(value) || parseFloat(value);
+        return isNaN(num) ? fallback : Math.max(0, num);
     }
 };
 
@@ -733,11 +814,48 @@ const Performance = {
 };
 
 // ==========================================
+// Global Error Handling
+// ==========================================
+window.addEventListener('error', (event) => {
+    console.error('Global error:', event.error);
+    // Prevent page crash from JavaScript errors
+    event.preventDefault();
+});
+
+window.addEventListener('unhandledrejection', (event) => {
+    console.error('Unhandled promise rejection:', event.reason);
+    // Prevent unhandled promise rejections from crashing the app
+    event.preventDefault();
+});
+
+// ==========================================
 // Initialize Application
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    App.init();
-    Performance.init();
+    try {
+        App.init();
+        Performance.init();
+    } catch (error) {
+        console.error('Application initialization failed:', error);
+        // Show a fallback message if initialization completely fails
+        const body = document.body;
+        if (body) {
+            body.innerHTML = `
+                <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center; font-family: Arial, sans-serif; background: #0a0a0f; color: #ffffff;">
+                    <div>
+                        <h1 style="color: #00d4ff; margin-bottom: 1rem;">Asim Merchant</h1>
+                        <p style="color: #b8c5d6; margin-bottom: 1rem;">Senior Firmware Development Engineer</p>
+                        <p style="color: #8892b0;">Portfolio is loading... Please refresh the page.</p>
+                        <div style="margin-top: 2rem;">
+                            <a href="mailto:asimthatsme@gmail.com" style="color: #00d4ff; text-decoration: none; margin: 0 1rem;">Email</a>
+                            <a href="https://github.com/AsimMerchant" style="color: #00d4ff; text-decoration: none; margin: 0 1rem;">GitHub</a>
+                            <a href="https://www.linkedin.com/in/asim-merchant-baaa0684/" style="color: #00d4ff; text-decoration: none; margin: 0 1rem;">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    }
 });
 
 // Export for testing purposes
