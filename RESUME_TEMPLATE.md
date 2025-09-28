@@ -35,25 +35,11 @@ This document defines the standardized markdown format that resumes must follow 
 
 [Repeat for each company...]
 
-## Skills & Abilities (Years of Experience)
+## Skills
 
-### TECHNICAL
+- **[Skill Category]**: **[Skill Name] ([X years])**, [Other skills...]
 
-· **[Skill Category]**: **[Skill Name] ([X years])**, [Other skills...]
-
-[Additional skill sections...]
-
-## Education and Certifications
-
-### [Program/Degree Name] | [Year] | [Institution]
-
-· [Additional details like percentage, CGPA, or certification type]
-
-[Repeat for each education entry...]
-
-## Publications
-
-· [Publication description with title, team size, etc.]
+[Additional skill categories as bullet points...]
 ```
 
 ---
@@ -86,7 +72,7 @@ This document defines the standardized markdown format that resumes must follow 
 ```markdown
 ## Areas of interest
 
-· Java, Android Development, Embedded Systems Design, RTOS, Machine Learning, Internet of things (IoT).
+- Java, Android Development, Embedded Systems Design, RTOS, Machine Learning, Internet of things (IoT).
 ```
 - **Format**: H2 heading followed by bullet point list
 - **Content**: Technical interests, specializations, domains of expertise
@@ -116,53 +102,24 @@ This document defines the standardized markdown format that resumes must follow 
 - Include in parentheses after "Projects"
 - Example: `**Projects (C, Python, FreeRTOS):**`
 
-### 4. Skills & Abilities (Required)
+### 4. Skills (Required)
 
 ```markdown
-## Skills & Abilities (Years of Experience)
+## Skills
 
-### TECHNICAL
-
-· **Programming**: **Python (5 years)**, **CPP (4 years)**, **C programming (7 years)**
-· **Software**: Vivado **(3 years)**, SDx/Vitis **(3 years)**
-· **Embedded Platforms**: **ARM** (Xilinx **(3 years)**), TI, Renesas
+- **Programming**: **Python (5 years)**, **CPP (4 years)**, **C programming (7 years)**
+- **Software**: Vivado **(3 years)**, SDx/Vitis **(3 years)**
+- **Embedded Platforms**: **ARM** (Xilinx **(3 years)**), TI, Renesas
 ```
 
 **Format Rules**:
-- H2 section heading with "(Years of Experience)" suffix
-- H3 subsection headings (TECHNICAL, SOFT SKILLS, etc.)
-- Bullet points with bold categories and skills
+- H2 section heading "Skills"
+- Bullet points using `-` (hyphen) for each skill category
+- Bold formatting for categories and individual skills
 - Years of experience in parentheses for key skills
-- Bold formatting for skill names and experience duration
+- Multi-line bullet content is supported and will be properly combined
 
-### 5. Education and Certifications (Required)
 
-```markdown
-## Education and Certifications
-
-### [PROGRAM NAME] | [Year] | [INSTITUTION NAME]
-
-· [Additional details like percentage, CGPA, certification type]
-```
-
-**Format Specifications**:
-- H3 headings for each entry
-- Pipe separators between program, year, and institution
-- Additional details as bullet points below heading
-- Support for degrees, certifications, and training programs
-
-### 6. Publications (Optional)
-
-```markdown
-## Publications
-
-· [Description of publication with title, team information, etc.]
-```
-
-**Format Rules**:
-- H2 section heading
-- Bullet point list of publications
-- Include paper titles, journals, team size, or other relevant details
 
 ---
 
@@ -175,19 +132,17 @@ This document defines the standardized markdown format that resumes must follow 
 - Regular text: Standard content
 
 ### Special Characters
-- **Bullet Points**: Use `·` (middle dot) or `-` (hyphen)
+- **Bullet Points**: Use `-` (hyphen)
 - **Separators**: Use `|` (pipe) for contact info and education entries
 - **Date Ranges**: Use `–` (en dash) or `-` (hyphen)
 - **Parentheses**: Use for years of experience and technology stacks
 
 ### Section Ordering
 1. Name (H1)
-2. Contact Information
+2. Contact Information  
 3. Areas of Interest (H2)
 4. Industry Experience (H2)
-5. Skills & Abilities (H2)
-6. Education and Certifications (H2)
-7. Publications (H2) - Optional
+5. Skills (H2)
 
 ### Content Guidelines
 - **Concise Language**: Clear, professional descriptions
@@ -205,8 +160,7 @@ This document defines the standardized markdown format that resumes must follow 
 - [ ] Contact information line
 - [ ] Areas of interest section
 - [ ] Industry experience section
-- [ ] Skills & abilities section
-- [ ] Education and certifications section
+- [ ] Skills section
 
 ### Format Validation
 - [ ] Proper markdown heading hierarchy

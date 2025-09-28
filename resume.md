@@ -70,32 +70,5 @@ Renesas.
 - **Miscellaneous** : **Wireless/RF (Wi-sun based on IEEE 802.15)**, MAC Layer, TFS, Jira, Github(gitlab),
 RTOS (FreeRTOS, EmbOS) (5 years).
 
-## Education and Certifications
-
-### EMBEDDED LINUX AND DEVICE DRIVERS | 2018-2019 | TECHVEDA
-
-#### - Training/Certification
-
-### MACHINE LEARNING WITH PYTHON | 2019 | COGNIXIA
-
-#### - Certification
-
-### POST GRADUATE DIPLOMA IN EMBEDDED SYSTEMS DESIGN | 2018 | CENTRE OF DEVELOPMENT IN ADVANCED COMPUTING
-
-#### - 72.21%
-
-### B.E. IN ELECTRONICS AND COMMUNICATION | 2017 | SARVANANIK COLLEGE OF ENGINEERING AND TECHNOLOGY
-
-#### - 7.1 CGPA
-
-### H.S.C. | 2013 | DIVINE CHILD HIGH SCHOOL
-
-#### - 72%
-
-### S.S.C. | 2011 | METAS OF SDA
-
-#### - 72%
-
-## Publications
 
 - Survey paper titled “A survey on Localization of Sensor nodes in Underwater Sensor Networks” in team of 4.

@@ -129,18 +129,24 @@ The tool automatically detects and formats:
 
 contact@email.com | phone | github | linkedin
 
-## Summary
-Brief professional summary here.
+## Areas of interest
 
-## Experience
-### Job Title | Company | Dates
-Job description and achievements.
+- Technology interests, specializations, domains of expertise
 
-## Skills  
-Technical and professional skills.
+## Industry Experience
 
-## Education
-Educational background.
+### Company Name Location | Position Title | Date Range
+
+**Brief Description:** Overview of role and responsibilities
+
+**Projects (Technology Stack):**
+- **Project Name**: Detailed description with technologies and achievements
+
+## Skills
+
+- **Programming**: **Python (5 years)**, **JavaScript (3 years)**
+- **Frameworks**: **React (2 years)**, **Django (3 years)**
+- **Tools**: **Docker (2 years)**, **AWS (1 year)**
 ```
 
 For a complete example, see [resume.md](resume.md) in this repository.
@@ -176,7 +182,7 @@ landgen/
 ### Generated HTML Features
 - **Clean Header Section** - Name and title prominently displayed
 - **Contact Bar** - Email, phone, GitHub, LinkedIn with intuitive icons
-- **Professional Sections** - Experience, skills, education cleanly formatted  
+- **Professional Sections** - Experience, skills, areas of interest cleanly formatted  
 - **Responsive Layout** - Adapts beautifully to desktop, tablet, and mobile
 - **Print Ready** - Optimized CSS for clean PDF generation
 
