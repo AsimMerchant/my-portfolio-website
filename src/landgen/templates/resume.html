@@ -303,82 +303,63 @@
         </div>
     </section>
 
-    <!-- Education & Other Sections -->
-    {% for section in sections %}
-    {% if section.title.lower() not in ['experience', 'skills & abilities (years of experience)', 'areas of interest'] and 'skill' not in section.title.lower() and 'experience' not in section.title.lower() %}
-    <section class="section-generic">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">{{ section.title }}</h2>
-            </div>
-            
-            <div class="section-content-wrapper">
-                <div class="content-card">
-                    {{ section.content | safe }}
-                </div>
-            </div>
-        </div>
-    </section>
-    {% endif %}
-    {% endfor %}
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's work together</p>
-            </div>
+            <h2 class="section-title">Get In Touch</h2>
             
             <div class="contact-content">
                 <div class="contact-info">
-                    {% if contact.email %}
-                    <div class="contact-item">
-                        <div class="contact-icon">
+                    <h3>Let's Connect</h3>
+                    <p>
+                        I'm always interested in discussing new opportunities, 
+                        technology projects, or innovations. 
+                        Feel free to reach out!
+                    </p>
+                    
+                    <div class="contact-methods">
+                        {% if contact.email %}
+                        <a href="mailto:{{ contact.email }}" class="contact-method">
                             <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
-                        </div>
-                    </div>
-                    {% endif %}
-                    
-                    {% if contact.phone %}
-                    <div class="contact-item">
-                        <div class="contact-icon">
+                            <div>
+                                <span class="method-label">Email</span>
+                                <span class="method-value">{{ contact.email }}</span>
+                            </div>
+                        </a>
+                        {% endif %}
+                        
+                        {% if contact.phone %}
+                        <a href="tel:{{ contact.phone }}" class="contact-method">
                             <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
-                        </div>
-                    </div>
-                    {% endif %}
-                    
-                    {% if contact.linkedin %}
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>LinkedIn</h3>
-                            <a href="{{ contact.linkedin }}" target="_blank">Connect with me</a>
-                        </div>
-                    </div>
-                    {% endif %}
-                    
-                    {% if contact.github %}
-                    <div class="contact-item">
-                        <div class="contact-icon">
+                            <div>
+                                <span class="method-label">Phone</span>
+                                <span class="method-value">{{ contact.phone }}</span>
+                            </div>
+                        </a>
+                        {% endif %}
+                        
+                        {% if contact.github %}
+                        <a href="{{ contact.github }}" target="_blank" rel="noopener" class="contact-method">
                             <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>GitHub</h3>
-                            <a href="{{ contact.github }}" target="_blank">View my projects</a>
-                        </div>
+                            <div>
+                                <span class="method-label">GitHub</span>
+                                <span class="method-value">{{ contact.github.split('/')[-1] }}</span>
+                            </div>
+                        </a>
+                        {% endif %}
+                        
+                        {% if contact.linkedin %}
+                        <a href="{{ contact.linkedin }}" target="_blank" rel="noopener" class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <span class="method-label">LinkedIn</span>
+                                <span class="method-value">Connect with me</span>
+                            </div>
+                        </a>
+                        {% endif %}
                     </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
