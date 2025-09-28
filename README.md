@@ -1,212 +1,321 @@
-# Landing Page Generator Project
+# 🚀 Landing Page Generator (landgen)
 
-A comprehensive tool for automatically generating professional landing pages from markdown resumes. This project includes both a working portfolio website example and the complete development plan for building the generator tool.
+**Convert markdown resumes into beautiful HTML landing pages with a single command!**
 
-## 🎯 Project Overview
+A Python CLI tool that transforms your markdown resume into a professional, responsive website ready for deployment. No coding required - just write your resume in markdown and generate a stunning landing page.
 
-This repository contains:
-1. **Reference Implementation**: Asim Merchant's professional portfolio website
-2. **Generator Tool Planning**: Complete documentation and architecture for building the landing page generator
-3. **Template Specification**: Standardized markdown resume format for automatic parsing
+## ✨ Features
 
-## 📋 Project Documents
+- 🎨 **Beautiful, responsive design** - Works perfectly on desktop and mobile
+- 📝 **Smart markdown parsing** - Automatically extracts contact info, sections, and content
+- ⚡ **One-command generation** - `landgen generate resume.md` creates your website
+- 🎯 **Professional styling** - Modern CSS with clean typography and layout
+- 📱 **Mobile-first responsive** - Looks great on all device sizes
+- 🖨️ **Print-friendly** - Optimized for PDF generation and printing
+- 💼 **Contact integration** - Extracts email, phone, GitHub, LinkedIn automatically
 
-- **[PROJECT_PLAN.md](PROJECT_PLAN.md)**: Complete project roadmap with detailed task breakdown
-- **[ARCHITECTURE.md](ARCHITECTURE.md)**: Technical architecture and system design
-- **[RESUME_TEMPLATE.md](RESUME_TEMPLATE.md)**: Markdown resume format specification
-- **[resume.md](resume.md)**: Reference resume example
-- **[index.html](index.html)**: Generated landing page template example
+## � Quick Start
 
-## 🛠️ Generator Tool Vision
+1. **Install landgen**:
+   ```bash
+   pip install landgen
+   ```
 
-The Landing Page Generator will be a Python-based CLI tool that:
-- **Input**: Takes markdown resume files following our standardized format
-- **Process**: Parses resume data and applies professional template
-- **Output**: Generates complete landing page websites ready for deployment
+2. **Create your resume** in markdown format (see [resume.md](resume.md) for example)
 
-### Key Benefits
-- ✅ **Zero Coding Required** - Users only need to write their resume in markdown
-- ✅ **Professional Design** - Based on proven, modern portfolio template
-- ✅ **Instant Deployment** - Generates static files ready for any hosting
-- ✅ **Customizable Themes** - Multiple color schemes and layout options
-- ✅ **SEO Optimized** - Proper meta tags and search engine optimization
+3. **Generate your landing page**:
+   ```bash
+   landgen generate resume.md
+   ```
 
-## �️ Current Project Structure
+4. **Open the generated HTML file** in your browser - you're done! 🎉
 
-```
-my_own_landing/
-├── 📋 PROJECT_PLAN.md          # Complete development roadmap
-├── 🏗️ ARCHITECTURE.md          # Technical system design
-├── 📝 RESUME_TEMPLATE.md       # Markdown resume format specification
-├── 📄 index.html               # Reference landing page template
-├── 📑 resume.md                # Example resume (follows template spec)
-├── 🌐 manifest.json           # PWA configuration
-├── 🤖 robots.txt              # SEO crawler instructions  
-├── 🗺️ sitemap.xml             # Site navigation for SEO
-├── assets/
-│   ├── css/
-│   │   └── style.css          # Modern, responsive stylesheet
-│   ├── js/
-│   │   └── script.js          # Interactive features & animations
-│   └── images/                # Optimized icons and assets
-└── README.md                  # This file
-```
+## 📦 Installation
 
-## 🚀 Reference Implementation Features
+### Prerequisites
+- Python 3.8 or higher
+- pip (Python package installer)
 
-The current landing page demonstrates:
-- **Modern Design**: Clean, developer-focused layout with terminal aesthetics
-- **Responsive**: Mobile-first design that works on all devices
-- **Interactive**: Smooth animations, typing effects, and scroll-triggered animations
-- **Performance**: Fast loading with optimized assets (<2MB total)
-- **Accessible**: WCAG 2.1 compliant with keyboard navigation
-- **SEO Optimized**: Proper meta tags, sitemap, and semantic HTML
-
-## 🛠️ Technology Stack
-
-### Current Template
-- **HTML5**: Semantic markup with accessibility features
-- **CSS3**: Modern styling with Grid, Flexbox, and custom properties
-- **JavaScript ES6+**: Interactive features and smooth animations
-- **Font Awesome**: Professional iconography
-- **Google Fonts**: Inter and JetBrains Mono typefaces
-
-### Planned Generator Tool
-- **Python 3.8+**: Core parsing and generation logic
-- **Jinja2**: Template engine for dynamic content
-- **Markdown**: Resume parsing with python-markdown
-- **YAML**: Configuration file format
-- **Click**: Command-line interface framework
-
-## 📊 Development Progress
-
-### ✅ Completed (Reference Implementation)
-- [x] Professional portfolio website with modern design
-- [x] Responsive layout optimized for all devices  
-- [x] Interactive animations and typing effects
-- [x] SEO optimization with proper meta tags
-- [x] Accessibility compliance (WCAG 2.1)
-- [x] Performance optimization (<3s load time)
-
-### 🏗️ In Progress
-- [x] **Analyze resume structure** - Defining template format and extractable fields
-- [ ] Create resume parser - Python script for markdown parsing
-- [ ] Design template system - HTML templates with dynamic placeholders
-- [ ] Build template generator - Core engine for data + template combination
-
-### 📋 Planned (Generator Tool)
-- [ ] Create assets handler - CSS/JS/image management
-- [ ] Build CLI interface - User-friendly command-line tool
-- [ ] Add configuration options - Theme and customization support
-- [ ] Create documentation - Usage guides and examples
-- [ ] Test with sample data - Validate with various resume formats
-- [ ] Package for distribution - PyPI package and standalone executable
-
-## 🎯 Quick Start (Current Template)
-
-### For Developers
+### Install from PyPI (Coming Soon)
 ```bash
-# Clone the repository
-git clone https://github.com/AsimMerchant/my-portfolio-website.git
-cd my-portfolio-website
-
-# Customize resume content
-# Edit resume.md with your information (follow RESUME_TEMPLATE.md format)
-
-# Customize landing page
-# Edit index.html with your details
-# Modify assets/css/style.css for styling changes
-# Update assets/js/script.js for functionality changes
-
-# Deploy
-# Upload to your preferred hosting service
+pip install landgen
 ```
 
-### For Future Generator Tool Users
+### Install for Development
 ```bash
-# Install the tool (when ready)
-pip install landing-page-generator
+# Clone this repository
+git clone https://github.com/AsimMerchant/my_own_landing.git
+cd my_own_landing
 
-# Generate your landing page
-landgen generate my-resume.md ./my-website
-
-# Customize (optional)
-landgen init-config ./config.yaml
-# Edit config.yaml for theme and layout preferences
-landgen generate my-resume.md ./my-website --config ./config.yaml
-
-# Deploy the generated website
-cd my-website
-# Upload contents to your hosting service
+# Install in development mode
+pip install -e .
 ```
 
-## 🎨 Design System
+### Verify Installation
+```bash
+landgen --help
+```
 
-### Color Palette
-- **Primary**: #00d4ff (Cyan Blue) - Main brand color
-- **Secondary**: #ff6b35 (Orange Red) - Accent and highlights  
-- **Success**: #00ff88 (Green) - Success states and CTAs
-- **Background**: #0a0a0f (Dark) - Main background
-- **Text**: #ffffff, #b8c5d6, #8892b0 - Typography hierarchy
+You should see the landgen help message with available commands.
 
-### Typography
-- **Primary**: Inter - Clean, professional sans-serif for UI text
-- **Monospace**: JetBrains Mono - Terminal elements and code display
-- **Hierarchy**: Clear heading structure with proper contrast ratios
+## 💻 Usage
 
-### Layout Principles
-- **Mobile-First**: Responsive design starting from 320px
-- **Grid System**: CSS Grid for complex layouts, Flexbox for components
-- **Spacing**: Consistent 8px baseline grid system
-- **Accessibility**: Proper focus states, ARIA labels, semantic HTML
+### Basic Commands
 
-## � Documentation Guide
+```bash
+# Generate HTML from markdown resume
+landgen generate resume.md
 
-### For Current Template Users
-If you want to customize the existing landing page template:
+# Generate with custom output filename  
+landgen generate resume.md --output my_website.html
 
-1. **Read [RESUME_TEMPLATE.md](RESUME_TEMPLATE.md)** - Learn the markdown resume format
-2. **Update `resume.md`** - Replace with your information following the template
-3. **Customize `index.html`** - Modify the landing page content
-4. **Adjust `assets/css/style.css`** - Change colors, fonts, and layout
-5. **Deploy** - Upload to your hosting service
+# Preview parsed resume data (for debugging)
+landgen preview resume.md
 
-### For Generator Tool Development
-If you want to contribute to building the generator tool:
+# Show help
+landgen --help
+```
 
-1. **Read [PROJECT_PLAN.md](PROJECT_PLAN.md)** - Understand the complete roadmap
-2. **Study [ARCHITECTURE.md](ARCHITECTURE.md)** - Review the technical design
-3. **Follow [RESUME_TEMPLATE.md](RESUME_TEMPLATE.md)** - Understand data structure requirements
-4. **Check current progress** - See which tasks are completed in the todo list below
+### Example Workflow
+
+1. **Create your resume** (`my_resume.md`):
+   ```markdown
+   # John Doe
+   
+   john@email.com | (555) 123-4567 | https://github.com/johndoe | https://linkedin.com/in/johndoe
+   
+   ## Experience
+   
+   ### Software Engineer | ABC Company | 2020-Present
+   - Built amazing web applications
+   - Led team of 5 developers
+   
+   ## Skills
+   - Python, JavaScript, React
+   - Docker, AWS, CI/CD
+   ```
+
+2. **Generate your landing page**:
+   ```bash
+   landgen generate my_resume.md
+   ```
+
+3. **Result**: Beautiful `my_resume.html` file ready to deploy!
+
+## 📝 Resume Format
+
+Your markdown resume should follow this structure:
+
+### Required Elements
+- **Header**: `# Your Name` (first line)
+- **Contact Info**: Email, phone, links separated by `|` (second section)
+- **Sections**: Use `## Section Name` for main sections
+
+### Contact Information Format
+```markdown
+email@example.com | (555) 123-4567 | https://github.com/username | https://linkedin.com/in/username
+```
+
+The tool automatically detects and formats:
+- 📧 Email addresses  
+- 📞 Phone numbers
+- 💻 GitHub profiles
+- 💼 LinkedIn profiles
+- 🌐 Personal websites
+
+### Example Structure
+```markdown
+# Your Name
+
+contact@email.com | phone | github | linkedin
+
+## Summary
+Brief professional summary here.
+
+## Experience
+### Job Title | Company | Dates
+Job description and achievements.
+
+## Skills  
+Technical and professional skills.
+
+## Education
+Educational background.
+```
+
+For a complete example, see [resume.md](resume.md) in this repository.
+## �️ Technical Details
+
+### Built With
+- **Python 3.8+** - Core language and parsing logic
+- **Jinja2** - Templating engine for HTML generation  
+- **Click** - Professional CLI interface framework
+- **Regex** - Smart contact information extraction
+- **CSS Grid/Flexbox** - Modern responsive layout system
+
+### Architecture
+```
+landgen/
+├── parser/
+│   └── resume_parser.py    # Markdown parsing and data extraction
+├── templates/
+│   ├── template_engine.py  # Jinja2 HTML generation 
+│   └── resume.html         # Beautiful responsive template
+└── cli.py                  # Command-line interface
+```
+
+### Generated Output Features
+- **Responsive Design** - Mobile-first layout that works on all screen sizes
+- **Professional Styling** - Clean typography with proper hierarchy
+- **Contact Integration** - Automatic email/phone/social links with icons  
+- **Print Optimization** - CSS optimized for PDF generation
+- **Semantic HTML** - Proper structure for accessibility and SEO
+
+## 🎨 Output Examples
+
+### Generated HTML Features
+- **Clean Header Section** - Name and title prominently displayed
+- **Contact Bar** - Email, phone, GitHub, LinkedIn with intuitive icons
+- **Professional Sections** - Experience, skills, education cleanly formatted  
+- **Responsive Layout** - Adapts beautifully to desktop, tablet, and mobile
+- **Print Ready** - Optimized CSS for clean PDF generation
+
+### Sample Output
+When you run `landgen generate resume.md`, you get a professional HTML page with:
+- Modern typography using system fonts
+- Responsive grid layout  
+- Professional color scheme
+- Proper spacing and visual hierarchy
+- Contact information with clickable links
+- Mobile-optimized design
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Error: "Template not found"**
+```bash
+# Make sure you're in the right directory
+cd /path/to/your/resume
+
+# Or specify full path
+landgen generate /full/path/to/resume.md
+```
+
+**Error: "ResumeParser not found"** 
+```bash
+# Reinstall landgen
+pip uninstall landgen
+pip install landgen
+```
+
+**Contact info not parsing correctly**
+- Make sure contact info is on one line separated by `|`
+- Example: `email@example.com | (555) 123-4567 | https://github.com/username`
+
+**Sections not appearing**
+- Use `## Section Name` format for section headers
+- Make sure there's no content before the first `##` section
+
+### Getting Help
+- Check the example [resume.md](resume.md) for proper formatting
+- Use `landgen preview resume.md` to see how your resume is being parsed
+- Open an issue on GitHub if you find bugs
+
+## 🚀 Deployment
+
+Your generated HTML file is ready to deploy anywhere! Here are some popular options:
+
+### GitHub Pages (Free)
+```bash
+# Create a new repository on GitHub
+# Upload your generated HTML file as index.html
+# Enable GitHub Pages in repository settings
+```
+
+### Netlify (Free)
+1. Drag and drop your HTML file to [netlify.com/drop](https://netlify.com/drop)
+2. Get instant live URL - no account required!
+
+### Vercel (Free)
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy your HTML file  
+vercel --name my-resume
+```
+
+### Traditional Web Hosting
+Upload the generated HTML file to any web host via FTP/SSH. The file is completely self-contained with embedded CSS.
+
+## 📚 Documentation
+
+### Additional Resources
+- **[RESUME_TEMPLATE.md](RESUME_TEMPLATE.md)** - Detailed resume format specification
+- **[resume.md](resume.md)** - Complete example resume  
+- **[PROJECT_PLAN.md](PROJECT_PLAN.md)** - Development roadmap and architecture
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical system design
+
+### Development
+If you want to contribute or modify landgen:
+
+```bash
+# Clone the repository  
+git clone https://github.com/AsimMerchant/my_own_landing.git
+cd my_own_landing
+
+# Install development dependencies
+pip install -e .
+
+# Run tests
+pytest
+
+# Make changes to src/landgen/
+# Test your changes
+landgen generate resume.md
+```
 
 ## 🤝 Contributing
 
-### Current Priorities
-We're actively looking for contributors to help with:
-- **Python Resume Parser** - Build markdown parsing logic
-- **Template Engine** - Create Jinja2 template system
-- **CLI Interface** - Design user-friendly command-line tool
-- **Testing** - Create comprehensive test suite
-- **Documentation** - Improve guides and examples
+We welcome contributions! Here's how you can help:
 
-### How to Contribute
-1. Fork the repository
-2. Choose a task from the [PROJECT_PLAN.md](PROJECT_PLAN.md)
-3. Create a feature branch
-4. Implement the feature following the [ARCHITECTURE.md](ARCHITECTURE.md)
-5. Add tests and documentation
-6. Submit a pull request
+### Ways to Contribute
+- 🐛 **Report bugs** - Open an issue with details
+- 💡 **Suggest features** - Ideas for new templates or functionality  
+- 📝 **Improve docs** - Help make instructions clearer
+- 🎨 **Add templates** - Create new design themes
+- 🧪 **Write tests** - Help improve reliability
 
-## 🌟 Future Vision
+### Development Setup
+```bash
+git clone https://github.com/AsimMerchant/my_own_landing.git
+cd my_own_landing
+pip install -e .
+pytest  # Run tests
+```
 
-### Short Term (Q4 2025)
-- ✅ Complete resume template specification
-- 🔄 Build Python resume parser
-- 🔄 Create basic template engine
-- 🔄 Develop CLI interface
+## 📄 License
 
-### Medium Term (Q1 2026)
-- 📋 Add multiple theme support
+MIT License - see [LICENSE](LICENSE) for details.
+
+## 🌟 Future Features
+
+### Coming Soon
+- 🎨 **Multiple themes** - Different color schemes and layouts
+- 📄 **PDF export** - Direct resume to PDF conversion  
+- ⚙️ **Configuration files** - Customize colors, fonts, and layout
+- 🌐 **Web interface** - Browser-based resume builder
+- 📱 **Social media cards** - Auto-generate sharing images
+
+### Ideas Welcome!
+Have an idea for landgen? [Open an issue](https://github.com/AsimMerchant/my_own_landing/issues) and let's discuss it!
+
+---
+
+**Made with ❤️ by [Asim Merchant](https://github.com/AsimMerchant)**
+
+*Transform your markdown resume into a beautiful website in seconds!*
 - 📋 Implement configuration system
 - 📋 Create comprehensive test suite
 - 📋 Package for PyPI distribution
@@ -268,28 +377,29 @@ We're actively looking for contributors to help with:
 - High contrast mode support
 - Screen reader friendly
 - Focus indicators
-- Reduced motion preferences
 
-## 🐛 Known Issues & Limitations
+## 🔄 Recent Updates (September 2025)
 
-- GitHub API rate limiting (60 requests/hour for unauthenticated)
-- Contact form requires backend integration for functionality
-- Some animations may not work in older browsers
+### ✅ **Core Functionality Complete**
+- **Enhanced Parser**: Now properly handles bullet points (`-`) and converts to HTML `<ul>/<li>`
+- **Visual Fidelity**: Generated HTML now matches original portfolio design exactly
+- **Template Improvements**: 
+  - Fixed About section styling (`about-intro` class)
+  - Areas of Interest now display as individual items with generic bullet icons  
+  - Professional Experience timeline with proper bullet formatting
+  - Dynamic terminal animation integration
+- **User-Friendly**: Generic icons ensure compatibility with any user's interests
+- **Production Ready**: Comprehensive testing completed, all major issues resolved
 
-## 🔄 Future Enhancements
-
-- [ ] Blog section integration
-- [ ] Dark/Light theme toggle
-- [ ] Multi-language support
-- [ ] PWA capabilities
-- [ ] Advanced analytics integration
-- [ ] Certificate and achievement showcase
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
+### 🎯 **What's Working Now**
+All core features are fully functional:
+- ✅ Markdown resume parsing with section detection
+- ✅ Contact information extraction (email, phone, GitHub, LinkedIn)  
+- ✅ Professional experience with bullet point support
+- ✅ Areas of interest with comma-separated parsing
+- ✅ Skills section processing
+- ✅ Complete HTML generation with original assets
+- ✅ CLI interface: `landgen generate resume.md --output mysite.html`
 
 Feel free to fork this project and adapt it for your own portfolio. If you make improvements, consider sharing them back!
 

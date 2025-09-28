@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} - Software Developer</title>
+    <meta name="description" content="{{ name }} - Software Developer{% if summary %}: {{ summary[:150] }}...{% endif %}">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="{{ name }} - Software Developer">
+    <meta property="og:description" content="{{ name }} - Software Developer{% if summary %}: {{ summary[:100] }}...{% endif %}">
+    <meta property="og:type" content="website">
+    {% if contact.github %}
+    <meta property="og:url" content="{{ contact.github }}">
+    {% endif %}
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.svg">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="code-typing">
+                <span class="typing-text">Loading portfolio...</span>
+                <span class="cursor">|</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <span class="logo-text">{{ name.split()[0] if name else "Portfolio" }}</span>
+                    <span class="logo-accent">.dev</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="name">{{ name }}</span>
+                        <span class="role">Software Developer</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        {% if summary %}
+                        {{ summary }}
+                        {% else %}
+                        Passionate about <span class="highlight">Software Development</span>, 
+                        <span class="highlight">Technology</span>, and <span class="highlight">Innovation</span>. 
+                        Building innovative solutions with cutting-edge technology.
+                        {% endif %}
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                        {% if contact.github %}
+                        <a href="{{ contact.github }}" target="_blank" rel="noopener" class="btn btn-secondary">
+                            <i class="fab fa-github"></i>
+                            View GitHub
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="btn-close"></span>
+                                <span class="btn-minimize"></span>
+                                <span class="btn-maximize"></span>
+                            </div>
+                            <span class="terminal-title">{{ name.split()[0].lower() if name else "user" }}@terminal:~$</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command" id="typing-command"></span>
+                                <span class="cursor-blink">|</span>
+                            </div>
+                            <div class="terminal-output" id="terminal-output"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    {% if summary %}
+                    <p class="about-description">{{ summary }}</p>
+                    {% else %}
+                    <p class="about-intro">
+                        {% if summary %}
+                        {{ summary }}
+                        {% else %}
+                        I'm a passionate Senior Firmware Development Engineer with extensive experience in 
+                        embedded systems design, real-time operating systems, and IoT solutions.
+                        {% endif %}
+                    </p>
+                    {% endif %}
+                    
+                    <div class="about-details">
+                        {% if contact.location %}
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>{{ contact.location }}</span>
+                        </div>
+                        {% endif %}
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Software Developer</span>
+                        </div>
+                        {% if contact.email %}
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>{{ contact.email }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    {% set interests_found = false %}
+                    {% for section in sections if not interests_found %}
+                    {% if 'interest' in section.title.lower() or 'area' in section.title.lower() %}
+                    <div class="expertise-areas">
+                        <h3>Areas of Interest</h3>
+                        <ul class="expertise-list">{% set clean_content = section.content.replace('- ', '').replace('·', '').strip().rstrip('.') %}{% set interests = clean_content.split(',') %}{% for interest in interests %}{% set clean_interest = interest.strip() %}<li><i class="fas fa-circle"></i> {{ clean_interest }}</li>{% endfor %}</ul>
+                    </div>
+                    {% set interests_found = true %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item animate-on-scroll">
+                        <div class="stat-number" data-target="7">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item animate-on-scroll">
+                        <div class="stat-number" data-target="{{ sections|length }}">0</div>
+                        <div class="stat-label">Skills Areas</div>
+                    </div>
+                    <div class="stat-item animate-on-scroll">
+                        <div class="stat-number" data-target="4">0</div>
+                        <div class="stat-label">Companies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            {% for section in sections %}
+            {% if 'experience' in section.title.lower() %}
+            <div class="timeline">
+                {% set experience_html = section.content %}
+                {% set jobs = experience_html.split('<h3>') %}
+                {% for job in jobs %}
+                {% if job.strip() %}
+                {% set job_parts = job.replace('</h3>', '').split('\n', 1) %}
+                {% if job_parts|length > 1 %}
+                {% set job_title_line = job_parts[0].strip() %}
+                {% set job_content = job_parts[1] %}
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        {% if '|' in job_title_line %}
+                        {% set job_info = job_title_line.split('|') %}
+                        {% if job_info|length >= 3 %}
+                        <div class="timeline-date">{{ job_info[2].strip() }}</div>
+                        <h3 class="timeline-title">{{ job_info[0].strip() }}</h3>
+                        <h4 class="timeline-company">{{ job_info[1].strip() }}</h4>
+                        {% else %}
+                        <h3 class="timeline-title">{{ job_title_line }}</h3>
+                        {% endif %}
+                        {% else %}
+                        <h3 class="timeline-title">{{ job_title_line }}</h3>
+                        {% endif %}
+                        
+                        {% if '<div class="job-description">' in job_content %}
+                        {% set desc_start = job_content.find('<div class="job-description">') + 29 %}
+                        {% set desc_end = job_content.find('</div>', desc_start) %}
+                        {% if desc_end > desc_start %}
+                        <p class="timeline-description">
+                            {{ job_content[desc_start:desc_end] | safe }}
+                        </p>
+                        {% endif %}
+                        {% endif %}
+                        
+                        {% if '<div class="job-projects">' in job_content %}
+                        {% set proj_start = job_content.find('<div class="job-projects">') + 26 %}
+                        {% set proj_end = job_content.find('</div>', proj_start) %}
+                        {% if proj_end > proj_start %}
+                        <div class="timeline-projects">
+                            <h5>Key Projects:</h5>
+                            {{ job_content[proj_start:proj_end] | safe }}
+                        </div>
+                        {% endif %}
+                        {% endif %}
+                        
+                        {% if '<div class="job-description">' not in job_content and '<div class="job-projects">' not in job_content %}
+                        <p class="timeline-description">
+                            {{ job_content | safe }}
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Abilities</h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+            
+            {% for section in sections %}
+            {% if 'skill' in section.title.lower() %}
+            <div class="skills-content">
+                <div class="skills-grid">
+                    {{ section.content | safe }}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Education & Other Sections -->
+    {% for section in sections %}
+    {% if section.title.lower() not in ['experience', 'skills & abilities (years of experience)', 'areas of interest'] and 'skill' not in section.title.lower() and 'experience' not in section.title.lower() %}
+    <section class="section-generic">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">{{ section.title }}</h2>
+            </div>
+            
+            <div class="section-content-wrapper">
+                <div class="content-card">
+                    {{ section.content | safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's work together</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    {% if contact.email %}
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if contact.phone %}
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if contact.linkedin %}
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <a href="{{ contact.linkedin }}" target="_blank">Connect with me</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if contact.github %}
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>GitHub</h3>
+                            <a href="{{ contact.github }}" target="_blank">View my projects</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 {{ name }}. All rights reserved.</p>
+                <div class="social-links">
+                    {% if contact.github %}
+                    <a href="{{ contact.github }}" target="_blank" rel="noopener" title="GitHub Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    {% endif %}
+                    {% if contact.linkedin %}
+                    <a href="{{ contact.linkedin }}" target="_blank" rel="noopener" title="LinkedIn Profile">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    {% endif %}
+                    {% if contact.email %}
+                    <a href="mailto:{{ contact.email }}" title="Send Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

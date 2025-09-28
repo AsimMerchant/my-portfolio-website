@@ -1,0 +1,2 @@
+[console_scripts]
+landgen = landgen.cli:cli
